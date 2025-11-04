@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LLM → ArcGIS Request Pipeline — Readable (Fixed)</title>
+  <style>
+    html, body { height:100%; }
+    body {
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: linear-gradient(180deg,#0A0F1A,#202A60) fixed;
+      color:#EAF0FF;
+      min-height:100%;
+      padding:28px;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .wrap{ width:min(1180px,100%); }
+    h1{ margin:0 0 16px; font-size:clamp(24px,3.2vw,36px); color:#FFFFFF; }
+    .canvas{ background:#0e1a3a; border:1px solid #1d2b55; border-radius:14px; padding:16px; box-shadow:0 8px 22px rgba(0,0,0,.35); }
+    svg{ width:100%; height:auto; display:block; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>LLM → ArcGIS Request Pipeline</h1>
+    <div class="canvas">
+      <!-- Increase viewBox width slightly and move ArcGIS box left so it doesn't clip -->
+      <svg viewBox="0 0 1140 650" preserveAspectRatio="xMidYMin meet" role="img" aria-label="LLM to ArcGIS Request Pipeline (Large Text, Fixed)">
+        <defs>
+          <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+            <feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="#00C8FF" flood-opacity="0.18"/>
+          </filter>
+          <marker id="arrowHead" markerWidth="18" markerHeight="18" refX="12" refY="6" orient="auto">
+            <path d="M0,0 L12,6 L0,12 Z" fill="#00C8FF"/>
+          </marker>
+          <style>
+            .box{ fill:#101A3A; stroke:#00C8FF; rx:12; filter:url(#softShadow); stroke-width:2.2; }
+            .title{ font-size:22px; font-weight:800; fill:#FFFFFF; }
+            .txt{ font-size:15px; fill:#BFD3FF; }
+            .flow{ fill:none; stroke:#00C8FF; stroke-width:2.6; marker-end:url(#arrowHead); stroke-linecap:round; stroke-linejoin:round; }
+            .label{ font-size:14px; fill:#9CCEFF; font-weight:600; }
+          </style>
+        </defs>
+
+        <rect x="0" y="0" width="1140" height="650" fill="#0A0F1A" rx="14"/>
+
+        <!-- FRONTEND -->
+        <g transform="translate(40,180)">
+          <rect class="box" width="240" height="170"/>
+          <text class="title" x="16" y="32">Frontend</text>
+          <text class="txt" x="16" y="60">HTML5 • React/Angular</text>
+          <text class="txt" x="16" y="82">ArcGIS JS API / Leaflet</text>
+          <text class="txt" x="16" y="104">Chat UI • Map View</text>
+          <text class="txt" x="16" y="126">EN/AR input • Whisper voice</text>
+        </g>
+
+        <!-- LLM -->
+        <g transform="translate(320,130)">
+          <rect class="box" width="260" height="190"/>
+          <text class="title" x="16" y="32">LLM Backend</text>
+          <text class="txt" x="16" y="60">GPT‑4o / Llama‑3 / Azure OpenAI</text>
+          <text class="txt" x="16" y="82">Arabic ↔ English understanding</text>
+          <text class="txt" x="16" y="104">Intent extraction & reasoning</text>
+          <text class="txt" x="16" y="126">Tool selection • Planning</text>
+        </g>
+
+        <!-- MIDDLEWARE -->
+        <g transform="translate(620,180)">
+          <rect class="box" width="240" height="176"/>
+          <text class="title" x="16" y="32">Middleware</text>
+          <text class="txt" x="16" y="60">FastAPI (Python)</text>
+          <text class="txt" x="16" y="82">Intent → ArcGIS REST</text>
+          <text class="txt" x="16" y="104">OAuth2 scopes • Audit</text>
+          <text class="txt" x="16" y="126">Validation • Rate limiting</text>
+          <text class="txt" x="16" y="148">ArcGIS REST / OGC</text>
+        </g>
+
+        <!-- ARC GIS (moved left to avoid clipping) -->
+        <g transform="translate(880,180)">
+          <rect class="box" width="230" height="160"/>
+          <text class="title" x="16" y="32">ArcGIS Engine</text>
+          <text class="txt" x="16" y="60">Feature Layers • Services</text>
+          <text class="txt" x="16" y="82">Spatial joins • Tiles</text>
+          <text class="txt" x="16" y="104">Spatial Data • Analysis</text>
+          <text class="txt" x="16" y="126">OGC / REST APIs</text>
+        </g>
+
+        <!-- ORCHESTRATION -->
+        <g transform="translate(500,430)">
+          <rect class="box" width="300" height="170"/>
+          <text class="title" x="16" y="32">Prompt Orchestration</text>
+          <text class="txt" x="16" y="60">LangChain • LangGraph</text>
+          <text class="txt" x="16" y="82">System prompts • Memory</text>
+          <text class="txt" x="16" y="104">GeoRAG retrieval • Policies</text>
+          <text class="txt" x="16" y="126">Bilingual response control</text>
+        </g>
+
+        <!-- FLOWS (minor x adjustments to match new width) -->
+        <polyline class="flow" points="280,240 305,240 305,200 320,200"/>
+        <text class="label" x="175" y="190">User query (EN/AR)</text>
+
+        <polyline class="flow" points="580,200 605,200 605,240 620,240"/>
+        <text class="label" x="490" y="268">Intent + parameters</text>
+
+        <polyline class="flow" points="860,240 875,240 875,240 880,240"/>
+        <text class="label" x="770" y="270">ArcGIS REST / OGC</text>
+
+        <polyline class="flow" points="1010,320 1010,380 650,380 650,430"/>
+        <text class="label" x="790" y="370">Features / results</text>
+
+        <polyline class="flow" points="500,490 260,490 260,330 170,330 170,270"/>
+        <text class="label" x="290" y="480">Final message + map updates</text>
+      </svg>
+    </div>
+  </div>
+</body>
+</html>

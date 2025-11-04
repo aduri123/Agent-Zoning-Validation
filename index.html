@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agentic Zoning Validation — Integrated Frontend & Backend View</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --ink: #0f172a;
+      --line: #e2e8f0;
+      --blue: #2563eb;
+      --cyan: #06b6d4;
+      --shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+    }
+    html, body {
+      margin: 0;
+      font-family: "Segoe UI", Inter, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+    }
+    header {
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+      color: #fff;
+      text-align: center;
+      padding: 22px 10px;
+      box-shadow: 0 6px 14px rgba(37, 99, 235, 0.25);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 800;
+    }
+    header p {
+      font-size: 14px;
+      margin: 4px 0 0;
+      opacity: 0.9;
+    }
+    .wrap {
+      max-width: 1600px;
+      margin: 24px auto;
+      padding: 0 16px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    iframe {
+      width: 100%;
+      height: 720px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      background: #fff;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 24px;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 10px 12px;
+      vertical-align: top;
+    }
+    th {
+      background: #eff6ff;
+      text-align: left;
+      font-weight: 700;
+    }
+    footer {
+      text-align: center;
+      color: #64748b;
+      font-size: 12px;
+      margin-top: 32px;
+      padding: 16px 0;
+    }
+    @media (max-width: 1024px) {
+      .grid { grid-template-columns: 1fr; }
+      iframe { height: 520px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Agentic Zoning Validation — Integrated Frontend & Backend View</h1>
+    <p>Unified visualization of the Agentic Zoning Validation Agent (UI) and the LLM → ArcGIS Request Pipeline (Backend).</p>
+  </header>
+
+  <div class="wrap">
+    <div class="grid">
+      <iframe src="agentic_zoning_validation.html" title="Agentic Zoning Validation Agent"></iframe>
+      <iframe src="llm_to_arcgis_pipeline.html" title="LLM → ArcGIS Request Pipeline"></iframe>
+    </div>
+
+    <table>
+      <tr>
+        <th>Diagram</th>
+        <th>Layer</th>
+        <th>Role in System</th>
+      </tr>
+      <tr>
+        <td><strong>Left — UI: Agentic Zoning Validation Agent</strong></td>
+        <td><strong>Frontend (User-facing Layer)</strong></td>
+        <td>User interacts in natural language (“Is this parcel compliant within Zone B?”).  
+            The UI sends structured queries and displays map results (PASS / VIOLATION).</td>
+      </tr>
+      <tr>
+        <td><strong>Right — LLM → ArcGIS Request Pipeline</strong></td>
+        <td><strong>Backend (Reasoning + GIS Execution Pipeline)</strong></td>
+        <td>Converts user intent into ArcGIS geoprocessing requests, executes validation logic,  
+            and returns structured responses + map updates back to the UI.</td>
+      </tr>
+    </table>
+  </div>
+
+  <footer>
+    © 2025 · Integrated Agentic GIS Demonstration — Frontend ↔ Backend Connectivity
+  </footer>
+</body>
+</html>
